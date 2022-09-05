@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-  final name = "Faiz Muhammad Khan";
-  final days = 40;
+  final name = "with an Indian";
+  final days = 60;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
