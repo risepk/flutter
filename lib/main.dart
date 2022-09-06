@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/loginpage.dart';
 import 'package:myapp/homepage.dart';
 
@@ -13,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //home: HomePage(),
-      initialRoute: "/home",
+      initialRoute: "/",
       routes: {
         "/": (context) => LoginPage(),
         "/home": (context) => HomePage(),
@@ -21,7 +24,8 @@ class MyApp extends StatelessWidget {
       },
       themeMode: ThemeMode.light,
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        fontFamily: GoogleFonts.lato().fontFamily,
+        primarySwatch: Colors.green,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
