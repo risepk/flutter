@@ -4,9 +4,16 @@ import 'package:flutter/material.dart';
 
 import '../utils/routes.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String name = "";
+  bool changeButton = false;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -16,10 +23,10 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Text("Login",
+            Text("Welcome $name !",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 45,
+                  fontSize: 35,
                   color: Colors.black,
                 )),
             Image.asset(
@@ -40,6 +47,10 @@ class LoginPage extends StatelessWidget {
                       hintText: "Enter Username",
                       labelText: "Username:",
                     ),
+                    onChanged: (value) {
+                      name = value;
+                      setState(() {});
+                    },
                   ),
                   TextFormField(
                     obscureText: true,
@@ -51,19 +62,55 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      //print("Hello Pakistan!");
+                  InkWell(
+                    onTap: () async {
+                      setState(() {
+                        changeButton = true;
+                      });
+                      await Future.delayed(Duration(seconds: 1));
+                      changeButton = false;
                       Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
-                    style: TextButton.styleFrom(minimumSize: Size(250, 60)),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                        fontSize: 30,
-                      ),
-                    ),
+                    child: AnimatedContainer(
+                        duration: Duration(seconds: 1),
+                        height: 50,
+                        width: changeButton ? 50 : 100,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: Colors.cyan,
+                            // shape: changeButton
+                            //     ? BoxShape.circle
+                            //     : BoxShape.rectangle,
+                            borderRadius:
+                                BorderRadius.circular(changeButton ? 25 : 10)),
+                        child: changeButton
+                            ? Icon(
+                                Icons.done,
+                                color: Colors.white,
+                              )
+                            : Text(
+                                "Login",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                              )),
                   ),
+
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     //print("Hello Pakistan!");
+                  //     Navigator.pushNamed(context, MyRoutes.homeRoute);
+                  //   },
+                  //   style: TextButton.styleFrom(minimumSize: Size(250, 60)),
+                  //   child: Text(
+                  //     "Login",
+                  //     style: TextStyle(
+                  //       fontSize: 30,
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 20,
                   )
