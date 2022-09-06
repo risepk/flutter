@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../utils/routes.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
@@ -9,23 +11,24 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
         color: Colors.white,
-        child: Column(
-          children: [
-            Image.asset(
-              "assets/images/login_image.png",
-              fit: BoxFit.cover,
-            ),
+        child: SingleChildScrollView(
+          child: Column(children: [
             SizedBox(
               height: 20,
             ),
             Text("Login",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 35,
+                  fontSize: 45,
                   color: Colors.black,
                 )),
+            Image.asset(
+              "assets/images/login_image.png",
+              height: 200,
+              fit: BoxFit.cover,
+            ),
             SizedBox(
-              height: 20,
+              height: 14,
             ),
             Padding(
               padding:
@@ -50,20 +53,24 @@ class LoginPage extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      print("Hello Pakistan!");
+                      //print("Hello Pakistan!");
+                      Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
-                    style: TextButton.styleFrom(),
+                    style: TextButton.styleFrom(minimumSize: Size(250, 60)),
                     child: Text(
                       "Login",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 30,
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 20,
+                  )
                 ],
               ),
-            ),
-          ],
+            )
+          ]),
         ));
   }
 }
