@@ -50,7 +50,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      print("Hello CodePur!");
+                      print("Hello Pakistan!");
                     },
                     style: TextButton.styleFrom(),
                     child: Text(
