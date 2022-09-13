@@ -1,8 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:myapp/widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-  final name = "with an Indian";
+  final name = " CodePUR";
   final days = 60;
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Text("Welcome to $days days of flutter With $name"),
       ),
-      drawer: const Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }
