@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/pages/loginpage.dart';
 import 'package:myapp/pages/homepage.dart';
 import 'package:myapp/utils/routes.dart';
+import 'package:myapp/widgets/themes.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,14 +24,9 @@ class MyApp extends StatelessWidget {
         MyRoutes.loginRoute: (context) => LoginPage(),
       },
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        fontFamily: GoogleFonts.lato().fontFamily,
-        primarySwatch: Colors.deepPurple,
-      ),
+      theme: MyTheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
+      darkTheme: MyTheme.darkTheme(context),
     );
   }
 }
